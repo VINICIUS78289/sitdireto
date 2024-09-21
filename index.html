@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística Express</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container-inicial">
+        <h1>Logística Express</h1>
+        <button id="btn-cliente">Cliente</button>
+        <button id="btn-equipe">Equipe Rastreamento</button>
+        <button id="btn-duvidas">Dúvidas e Problemas</button>
+    </div>
+
+    <div id="container-cliente" style="display: none;">
+        <h2>Digite o Código de Rastreamento</h2>
+        <input type="text" id="codigo-rastreamento" placeholder="Digite o código">
+        <button id="btn-ver-detalhes">Ver Detalhes</button>
+        <button class="btn-voltar" id="btn-voltar-cliente">← Voltar</button>
+    </div>
+
+    <div id="container-detalhes" style="display: none;">
+        <h2>Detalhes da Encomenda</h2>
+        <p><strong>Origem:</strong> Ubatuba, SP</p>
+        <p><strong>Data e Horário:</strong> 10/08/2024 - 14:00</p>
+        <p><strong>Transportadora:</strong> Logística Express</p>
+        <h3>Cronologia das Passagens</h3>
+        <ul id="cronologia">
+            <li>10/08/2024 - 19:00: Paulo (Motorista) pegou a encomenda em Ubatuba-SP. Carro: Fiat Strada - Placa: ABC-1234. A caminho de Taubaté-SP. Previsão de chegada: 11/08/2024.</li>
+            <li>11/08/2024 - 09:00: Maria (Motorista) pegou a encomenda em Taubaté-SP. Carro: VW Saveiro - Placa: DEF-5678. A caminho de Varginha-MG. Previsão de chegada: 12/08/2024.</li>
+            <li>12/08/2024 - 15:30: João (Motorista) pegou a encomenda em Varginha-MG. Carro: Renault Kangoo - Placa: GHI-9101. A caminho de Itajubá-MG. Previsão de chegada: 13/08/2024.</li>
+            <li>13/08/2024 - 11:45: Pedro (Motorista) pegou a encomenda em Itajubá-MG. Carro: Ford Transit - Placa: JKL-1122. A caminho de Pouso Alegre-MG. Previsão de chegada: 14/08/2024.</li>
+            <li>14/08/2024 - 16:20: Ana (Motorista) pegou a encomenda em Pouso Alegre-MG. Carro: Mercedes Sprinter - Placa: MNO-3344. A caminho de Santa Rita-MG. Previsão de chegada: 15/08/2024.</li>
+            <li>15/08/2024 - 10:00: Encomenda entregue ao cliente final em Santa Rita-MG: Joana.</li>
+        </ul>
+        <button class="btn-voltar" id="btn-voltar-detalhes">← Voltar</button>
+    </div>
+
+    <!-- ID para a seção de cadastrar movimentação -->
+    <div id="container-equipe" style="display: none;">
+        <h2>Digite o Código do Veículo</h2>
+        <input type="text" id="codigo-veiculo" placeholder="Digite o código do veículo">
+        <button id="btn-cadastrar-movimentacao"><a href="#container-movimentacao">Cadastrar Movimentação</a></button>
+        <button class="btn-voltar" id="btn-voltar-equipe">← Voltar</button>
+    </div>
+
+    <!-- Esta é a seção que vai ser referenciada pelo link -->
+    <div id="container-movimentacao">
+        <h2>Cadastrar Movimentação</h2>
+        <form id="form-movimentacao">
+            <label for="ponto-inicio">Ponto de Início:</label>
+            <input type="text" id="ponto-inicio" placeholder="Digite o ponto de início">
+
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" placeholder="Digite a cidade">
+
+            <label for="data-horario">Data e Horário:</label>
+            <input type="text" id="data-horario" placeholder="Digite a data e o horário">
+
+            <label for="nome-pessoa">Nome da Pessoa com a Encomenda:</label>
+            <input type="text" id="nome-pessoa" placeholder="Digite o nome da pessoa">
+
+            <label for="proximo-destino">Próximo Destino:</label>
+            <input type="text" id="proximo-destino" placeholder="Digite o próximo destino">
+
+            <label for="previsao-entrega">Previsão de Entrega:</label>
+            <input type="text" id="previsao-entrega" placeholder="Digite a previsão de entrega">
+
+            <button type="submit">Salvar Movimentação</button>
+        </form>
+        <button class="btn-voltar" id="btn-voltar-movimentacao">← Voltar</button>
+    </div>
+
+    <div id="container-duvidas" style="display: none;">
+        <h2>Dúvidas e Problemas</h2>
+        <form id="form-duvida">
+            <label for="nome-cliente">Nome do Cliente:</label>
+            <input type="text" id="nome-cliente" placeholder="Digite seu nome" required>
+
+            <label for="produto">Produto Comprado:</label>
+            <input type="text" id="produto" placeholder="Digite o nome do produto" required>
+
+            <label for="duvida">Dúvida/Problema:</label>
+            <textarea id="duvida" placeholder="Descreva sua dúvida ou problema" required></textarea>
+
+            <button type="submit">Enviar Dúvida</button>
+        </form>
+        <h3>Dúvidas Recentes:</h3>
+        <ul id="lista-respostas">
+            <li><strong>Joana:</strong> Produto: "Cesta de Natal" - Dúvida: "Não recebi a minha encomenda ainda!"<br><em>Resposta da equipe: "Olá Joana, verificamos que sua entrega está a caminho e deve chegar em até 2 dias. Agradecemos pela sua paciência!"</em></li>
+            <li><strong>Pedro:</strong> Produto: "Cadeira Gamer" - Dúvida: "A cadeira veio com um pé quebrado. O que eu faço?"<br><em>Resposta da equipe: "Olá Pedro, lamentamos pelo ocorrido. Por favor, entre em contato com nosso suporte para que possamos solucionar isso o mais rápido possível."</em></li>
+            <li><strong>Ana:</strong> Produto: "Fone Bluetooth" - Dúvida: "Como faço para conectar o fone ao meu celular?"<br><em>Resposta da equipe: "Olá Ana, você pode conectar seu fone ao celular ativando o Bluetooth e selecionando o dispositivo na lista. Se precisar de ajuda, estamos à disposição!"</em></li>
+        </ul>
+        <button class="btn-voltar" id="btn-voltar-duvidas">← Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
